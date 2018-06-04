@@ -10,4 +10,4 @@ before_install:
 
 script:
   - docker build -t tmp:1 .
-  - sh clair-container-scan.sh -v tmp:1
+  - sh clair-container-scan.sh tmp:1
