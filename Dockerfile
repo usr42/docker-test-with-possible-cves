@@ -1,4 +1,4 @@
-FROM alpine:3.4
+FROM alpine:3.7
 RUN apk --no-cache --update add \
         firefox-esr \
         openssl \
