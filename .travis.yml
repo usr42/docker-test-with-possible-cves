@@ -1,0 +1,12 @@
+sudo: required
+
+services:
+  - docker
+
+before_install:
+  - wget https://raw.githubusercontent.com/usr42/clair-container-scan/master/clair-container-scan.sh
+  - wget https://raw.githubusercontent.com/usr42/clair-container-scan/master/docker-compose.yaml
+
+script:
+  - docker build -t tmp:1 .
+  - sh clair-container-scan.sh tmp:1
