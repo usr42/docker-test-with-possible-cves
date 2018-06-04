@@ -3,11 +3,6 @@ sudo: required
 services:
   - docker
 
-before_install:
-  - wget https://raw.githubusercontent.com/usr42/clair-container-scan/master/clair-container-scan.sh
-  - wget https://raw.githubusercontent.com/usr42/clair-container-scan/master/docker-compose.yaml
-  - docker-compose version
-
 script:
   - docker build -t tmp:1 .
-  - sh clair-container-scan.sh tmp:1
+  - curl -s https://raw.githubusercontent.com/usr42/clair-container-scan/master/clair-container-scan.sh | sh -s -- -v tmp:1
